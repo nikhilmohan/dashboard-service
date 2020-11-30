@@ -1,0 +1,52 @@
+server:
+  port: 9060
+spring:
+  profiles:
+    active: dev
+goal.score:
+  easy: 10
+  moderate: 25
+  extreme: 50
+deferPenalty: 6
+resumeBonus: 1
+---
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: hourglass
+  cloud.stream:
+    bindings:
+      input-tasks:
+        destination: tasks
+        group: dashboard
+
+      input-goals:
+        destination: goals
+        group: dashboard
+
+      input-dashboard:
+        destination: dashboard
+        group: dashboard
+        consumer:
+          maxAttempts: 3
+          backOffInitialInterval: 1000
+          backOffMaxInterval: 20000
+          backOffMultiplier: 3.0
+
+---
+spring:
+  profile: prod
+  data:
+    mongodb:
+      host: localhost
+      port: 27018
+      database: hourglass
+
+
+
+
+
+
