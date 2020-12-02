@@ -336,12 +336,19 @@ public class DashboardService {
                     metricResponse.setTasksCompleted(currentSummary.getTasksCompleted());
                     metricResponse.setGoalsPlanned(currentSummary.getGoalsPlanned());
                     metricResponse.setGoalsAccomplished(currentSummary.getGoalsAccomplished());
-
+                    metricResponse.setFallback(getFallbackValue(dashboardMetric));
                     metricResponse.setActiveMonth(LocalDate.of(currentMonth.getYear(), currentMonth.getMonthValue(), 2));
                     return metricResponse;
                 })
                 .switchIfEmpty(Mono.defer(()->Mono.error(new DashboardException(404, "User records not found"))));
 
+    }
+
+    private String getFallbackValue(DashboardMetric dashboardMetric) {
+
+        return (dashboardMetric.getMetricSummaryList().stream()
+                .anyMatch(summary -> summary.getGoalsPlanned() > 0 || summary.getTasksPlanned() > 0))
+                ? "" : "Please start adding goals and tasks!";
     }
 
     public Mono<DashboardMetric> initMetrics(String userId)  {
