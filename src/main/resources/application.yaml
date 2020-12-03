@@ -9,14 +9,6 @@ goal.score:
   extreme: 50
 deferPenalty: 6
 resumeBonus: 1
----
-spring:
-  profiles: dev
-  data:
-    mongodb:
-      host: localhost
-      port: 27017
-      database: hourglass
   cloud.stream:
     bindings:
       input-tasks:
@@ -38,11 +30,20 @@ spring:
 
 ---
 spring:
-  profile: prod
+  profiles: dev
   data:
     mongodb:
       host: localhost
-      port: 27018
+      port: 27017
+      database: hourglass
+
+---
+spring:
+  profile: prod
+  data:
+    mongodb:
+      host: mongodb
+      port: 27017
       database: hourglass
 
 
