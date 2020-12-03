@@ -3,12 +3,6 @@ server:
 spring:
   profiles:
     active: dev
-goal.score:
-  easy: 10
-  moderate: 25
-  extreme: 50
-deferPenalty: 6
-resumeBonus: 1
   cloud.stream:
     bindings:
       input-tasks:
@@ -27,6 +21,13 @@ resumeBonus: 1
           backOffInitialInterval: 1000
           backOffMaxInterval: 20000
           backOffMultiplier: 3.0
+goal.score:
+  easy: 10
+  moderate: 25
+  extreme: 50
+deferPenalty: 6
+resumeBonus: 1
+
 
 ---
 spring:
