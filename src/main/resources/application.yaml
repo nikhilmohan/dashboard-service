@@ -21,6 +21,7 @@ spring:
           backOffInitialInterval: 1000
           backOffMaxInterval: 20000
           backOffMultiplier: 3.0
+
 goal.score:
   easy: 10
   moderate: 25
@@ -37,6 +38,9 @@ spring:
       host: localhost
       port: 27017
       database: hourglass
+  cloud.stream:
+    kafka.binder:
+      brokers: localhost
 
 ---
 spring:
@@ -46,6 +50,9 @@ spring:
       host: mongodb
       port: 27017
       database: hourglass
+  cloud.stream:
+    kafka.binder:
+      brokers: kafka
 
 
 
