@@ -52,7 +52,7 @@ spring:
       database: hourglass
   cloud.stream:
     kafka.binder:
-      brokers: kafka
+      brokers: localhost
 
 
 
