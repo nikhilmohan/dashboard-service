@@ -21,6 +21,11 @@ spring:
           backOffInitialInterval: 1000
           backOffMaxInterval: 20000
           backOffMultiplier: 3.0
+    defaultBinder: rabbit
+    default.contentType: application/json
+
+
+
 
 goal.score:
   easy: 10
@@ -38,22 +43,29 @@ spring:
       host: localhost
       port: 27017
       database: hourglass
-  cloud.stream:
-    kafka.binder:
-      brokers: localhost
+spring.rabbitmq:
+  host: localhost
+  port: 5672
+  username: guest
+  password: guest
 
 ---
 spring:
   profile: prod
   data:
     mongodb:
-      host: mongodb
+      host: hourglassdb-service
       port: 27017
       database: hourglass
   cloud.stream:
     kafka.binder:
       brokers: kafka
       defaultBrokerPort: 9093
+spring.rabbitmq:
+  host: rabbitmq
+  port: 5672
+  username: guest
+  password: guest
 
 
 
