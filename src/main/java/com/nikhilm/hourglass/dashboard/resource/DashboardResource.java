@@ -2,7 +2,6 @@ package com.nikhilm.hourglass.dashboard.resource;
 
 import com.nikhilm.hourglass.dashboard.exceptions.ApiError;
 import com.nikhilm.hourglass.dashboard.exceptions.DashboardException;
-import com.nikhilm.hourglass.dashboard.models.DashboardMetric;
 import com.nikhilm.hourglass.dashboard.models.MetricResponse;
 import com.nikhilm.hourglass.dashboard.services.DashboardService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;

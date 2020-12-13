@@ -1,11 +1,10 @@
 package com.nikhilm.hourglass.dashboard.services;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
 import com.nikhilm.hourglass.dashboard.exceptions.DashboardException;
 import com.nikhilm.hourglass.dashboard.models.*;
 import com.nikhilm.hourglass.dashboard.repositories.DashboardMetricRepository;
 import lombok.extern.slf4j.Slf4j;
-import org.mapstruct.Mapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,7 @@ import reactor.core.publisher.Mono;
 import java.text.DecimalFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.time.format.FormatStyle;
+
 import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
